@@ -1,0 +1,13 @@
+[workspace]
+resolver = "2"
+members = ["host", "host/guest"]
+
+[workspace.dependencies]
+risc0-zkvm  = { version = "1.2.6", features = ["std"] }
+risc0-build = "1.2.6"
+bonsai-sdk  = { version = "0.9", features = ["non_blocking"] }
+serde       = { version = "1.0", features = ["derive"] }
+sha2        = "0.10"
+
+[profile.release]
+opt-level = 3

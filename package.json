@@ -1,0 +1,37 @@
+{
+  "name": "lumina",
+  "version": "0.1.0",
+  "private": true,
+  "description": "ZK-Privacy Invoice Factoring on Stellar",
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "scripts": {
+    "dev:backend":      "cd backend && npm run dev",
+    "dev:frontend":     "cd frontend && npm run dev",
+    "dev":              "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "build:frontend":   "npm run build --workspace=frontend",
+    "build:backend":    "npm run build --workspace=backend",
+    "build":            "npm run build:frontend && npm run build:backend",
+    "build:contracts":  "cd contracts && cargo build --target wasm32-unknown-unknown --release",
+    "deploy":           "bash scripts/deploy.sh",
+    "health":           "bash scripts/health-check.sh",
+    "e2e":              "bash scripts/e2e-test.sh",
+    "check:contracts":  "cd contracts && cargo check --tests",
+    "check:backend":    "cd backend && tsc --noEmit",
+    "check:frontend":   "cd frontend && tsc --noEmit",
+    "check":            "npm run check:contracts && npm run check:backend && npm run check:frontend",
+    "test":             "npm test --workspaces --if-present",
+    "lint":             "npm run lint --workspaces --if-present",
+    "contracts:test":   "cd contracts && cargo test",
+    "zk:build":         "cd zk-prover && cargo build --release",
+    "zk:test":          "cd zk-prover && cargo test"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

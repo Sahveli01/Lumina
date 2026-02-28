@@ -1,0 +1,31 @@
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Node
+node_modules/
+dist/
+.next/
+out/
+
+# Rust (Cargo.lock committed for binary projects)
+target/
+*.wasm
+*.d.ts.map
+
+# OS
+**/.DS_Store
+Thumbs.db
+
+# Explicit build dirs
+frontend/.next/
+backend/dist/
+
+# IDE
+.vscode/settings.json
+.idea/
+
+# Logs
+*.log
+npm-debug.log*

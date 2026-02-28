@@ -1,0 +1,6 @@
+# GNU toolchain kullanıyoruz (Windows SDK gerektirmez).
+# wasm32 hedefi için özel bayrak.
+[target.wasm32-unknown-unknown]
+rustflags = [
+    "-C", "target-feature=+bulk-memory",
+]
